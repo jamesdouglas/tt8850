@@ -22,3 +22,12 @@ _testmain.go
 *.exe
 *.test
 *.prof
+
+// glide deps
+_vendor/
+
+// glog logs
+skypatrolTT8850.test.*
+
+// sublime files
+skypatrolTT8850.sublime-*
