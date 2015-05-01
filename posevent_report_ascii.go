@@ -2,7 +2,6 @@ package skypatrolTT8850
 
 import (
 	"fmt"
-	"github.com/golang/glog"
 	"strconv"
 	"strings"
 	"time"
@@ -166,6 +165,6 @@ func (parser *AsciiParser) NotityPositionEventReport(frame *Frame, report *Posit
 	if parser.Listener != nil {
 		go parser.Listener.PositionEventReport(frame, report)
 	} else {
-		glog.V(5).Infof("Nil listener, discarding position event report, frame=%+v report=%+v", frame, report)
+		log.Debug("Nil listener, discarding position event report, frame=%+v report=%+v", frame, report)
 	}
 }

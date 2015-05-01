@@ -2,7 +2,6 @@ package skypatrolTT8850
 
 import (
 	"encoding/hex"
-	"github.com/golang/glog"
 	. "gopkg.in/check.v1"
 )
 
@@ -50,8 +49,6 @@ func (s *AsciiParserSuite) TestParse(c *C) {
 	c.Assert(r.BatteryPercentage, Equals, 100)
 	c.Assert(r.SendTime.Format(timestampLayout), Equals, "20150114194033")
 	c.Assert(r.CountNumber, Equals, "269E")
-
-	glog.Flush()
 }
 
 func (s *AsciiParserSuite) TestParseGTFRI(c *C) {
@@ -98,6 +95,4 @@ func (s *AsciiParserSuite) TestParseGTFRI(c *C) {
 	c.Assert(r.BatteryPercentage, Equals, 90)
 	c.Assert(r.SendTime.Format(timestampLayout), Equals, "20090214093254")
 	c.Assert(r.CountNumber, Equals, "11F0")
-
-	glog.Flush()
 }

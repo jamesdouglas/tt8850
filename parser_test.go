@@ -1,7 +1,6 @@
 package skypatrolTT8850
 
 import (
-	"github.com/golang/glog"
 	. "gopkg.in/check.v1"
 	"sync"
 	"testing"
@@ -47,7 +46,7 @@ func (s *TestListener) PositionEventReport(frame *Frame, report *PositionEventRe
 	}
 	s.Frame = frame
 	s.Report = report
-	glog.Infof("PositionEventReport:\n\tframe: %+v\n\treport: %+v\n\tpos-event report: %+v", frame, report.Report, report)
+	log.Info("PositionEventReport:\n\tframe: %+v\n\treport: %+v\n\tpos-event report: %+v", frame, report.Report, report)
 	s.Wg.Done()
 }
 
@@ -57,6 +56,6 @@ func (s *TestListener) ParsingError(frame *Frame, err error) {
 	}
 	s.Frame = frame
 	s.Error = err
-	glog.Infof("ParsingError:\n\tframe: %+v\n\terror: %+v", frame, err)
+	log.Info("ParsingError:\n\tframe: %+v\n\terror: %+v", frame, err)
 	s.Wg.Done()
 }

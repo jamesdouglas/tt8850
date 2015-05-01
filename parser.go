@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"encoding/binary"
 	"fmt"
-	"github.com/golang/glog"
 	"time"
 )
 
@@ -83,7 +82,7 @@ func NewParser(listener ParserListener) *Parser {
 }
 
 func (parser *Parser) Parse(data []byte) {
-	glog.V(5).Infof("parsing frame: %+v", data)
+	log.Debug("parsing frame: %+v", data)
 
 	frame := NewFrame(data)
 
@@ -113,6 +112,6 @@ func (parser *Parser) NotityError(frame *Frame, err error) {
 	if parser.Listener != nil {
 		go parser.Listener.ParsingError(frame, err)
 	} else {
-		glog.V(5).Infof("Nil listener, discarding error, frame=%+v error=%s", frame, err)
+		log.Debug("Nil listener, discarding error, frame=%+v error=%s", frame, err)
 	}
 }
